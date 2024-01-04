@@ -1,60 +1,91 @@
 # Deep_Learning_Challenge
 
-### Objctive:
- Objective of this of challenge is to developed to develop a nerual networl model 
+## Objective:
+ Objective of this of challenge is to develop a binary classified neural network model, which could be used in optimisation of financial risks.
 
+## Datasets
+Charity datasets provided as part of challenge.
+
+## Model
+A Sequential tensorflow binary classified neural model is used for this challenge.
 
 # Results
+ ### [Model Version 01](https://github.com/pkrachakonda/Deep_Learning_Challenge/blob/main/AlphabetSoupCharity_Version_01.ipynb)
+
 - Data Preprocessing:
-  - The target variable to determine the effectiveness of the funds disbursed is "IS_SUCCESSFUL". This variable reflects whether the financial aid has been utilized efficiently or not.
-  - The following variables are classified as feature variables: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
-  - EIN and NAME were removed because they are neither targets nor features.
+  - As per instruction both, EIN and NAME were removed because they are neither targets nor features.
+  - The target/label variable used in the analysis is *"IS_SUCCESSFUL"*, a variable used to reflect whether the financial aid has been utilized efficiently or not.
+  - Remaining variables of datasets are classified as feature variables: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT. 
  
 - Compiling, Training, and Evaluating the Model:
-  - According to [`AlphabetSoupCharity.ipynb`](https://github.com/lakigit/deep-learning-challenge/blob/main/Starter_Code/AlphabetSoupCharity.ipynb)
-    - The number of input features is directly proportional to the length of X_train. The model architecture comprises two hidden layers with 80 and 30 neurons, respectively. The rectified linear unit (ReLU) activation function is employed for both hidden layers, while the sigmoid activation function is used for the output layer.
-![image](https://github.com/lakigit/deep-learning-challenge/assets/138610916/034b0566-39f2-4a26-ac00-76a27e469365)
-    - Evaluate the model using the test data
-      
-      `268/268 - 0s - loss: 0.5553 - accuracy: 0.7245 - 466ms/epoch - 2ms/step`\
-      `Loss: 0.5552864670753479, Accuracy: 0.7245481014251709`
+    - Around 80 and 30 neurons are used for First and Second layers and a single neuron for output layer ([Model Version 01](https://github.com/pkrachakonda/Deep_Learning_Challenge/blob/main/AlphabetSoupCharity_Version_01.ipynb)) .
+       
+       ![Model 01 Summary](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/7cedfed2-66b5-4491-99d5-094282dde881)
 
+    - The rectified linear unit (ReLU) activation function is employed for both hidden layers, while the sigmoid activation function is used for the output layer.
+    - Probabilistic loss function  *binary_crossentropy* and *adamax* optimizer was used.
+
+    - Evaluate the model using the test data
       1. **Epochs and Timing**:
-        - It looks like the training process involves 268 epochs.
-        - The training time for each epoch is 466 milliseconds, and the time taken for each step (or batch) is 2 milliseconds.
+        - It looks like the training process involves 100 epochs.
+        - The training time for each epoch is 340 milliseconds, and the time taken for each step (or batch) is 1 milliseconds.
 
       2. **Model Performance**:
-        - The loss after training is 0.5553.
-        - The accuracy achieved on the dataset is 72.45%.
-      
-      3. **Conclusion**:
-        - The model's accuracy is approximately 72.45%, suggesting that it correctly predicted the target outcome for about 72.45% of the instances in the dataset.
-        - The loss value (0.5553) is a measure of how well the model is performing, with lower values indicating better performance. This loss value is used to optimize the model during training.
+        - The loss after training is 0.5545.
+        - The accuracy achieved on the dataset is 72.85%.
      
-  - As per the analysis presented in the [`AlphabetSoupCharity_Optimisation.ipynb`](https://github.com/lakigit/deep-learning-challenge/blob/main/Starter_Code/AlphabetSoupCharity_Optimisation.ipynb) file, the objective is to optimize the model in order to achieve an accuracy rate exceeding 75%.
-      - **Attempt 01: Add More Neurons to Hidden Layers**\
-        The deep learning model comprises two hidden layers, with 100 and 90 neurons, respectively. The activation function employed in both these layers is "rectified linear unit" (ReLU), whereas the output layer uses the "sigmoid" activation function.
-![image](https://github.com/lakigit/deep-learning-challenge/assets/138610916/8ab4bf94-06ec-43f5-b0af-b5f4566f737a)
+          ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/a19a2b71-96c7-4bed-80a1-76bac60c77d2)
 
-        `268/268 - 1s - loss: 0.5607 - accuracy: 0.7243 - 781ms/epoch - 3ms/step`\
-        `Loss: 0.5606803894042969, Accuracy: 0.7243148684501648`
+ - **Conclusion**:
+        - The model's accuracy is approximately 72.85%, suggesting that it correctly predicted the target outcome for about 72.85% of the instances in the dataset.
+        - The loss value (0.5545) is a measure of how well the model is performing, with lower values indicating better performance. This loss value is used to optimize the model during training.
 
-        Notwithstanding, the incorporation of the aforementioned technique does not significantly enhance the precision of the model.
+## Optimisation
+  - In order to achieved an accuracy of 75%, an attempts were made.
 
-      - **Attempt 02: Add More Hidden Layers**\
-        In this step, a neural network model is constructed, consisting of three hidden layers. Each layer contains 100, 50, and 20 neurons, respectively. The activation functions employed in these layers are "relu," "tanh," and "sigmoid," respectively, while the output layer employs the "sigmoid" activation function. This model is designed to optimize the neural network's performance in terms of accuracy and efficiency.\
-![image](https://github.com/lakigit/deep-learning-challenge/assets/138610916/cb3016a3-6949-4722-9ce3-c8d3f7183ffa)
+  - **Attempt 01: Add More Hidden Layers**\
+      [Model Version 02](https://github.com/pkrachakonda/Deep_Learning_Challenge/blob/main/AlphabetSoupCharity_Version_02.ipynb)
 
-        `268/268 - 1s - loss: 0.5590 - accuracy: 0.7256 - 738ms/epoch - 3ms/step`\
-        `Loss: 0.5589935779571533, Accuracy: 0.7255976796150208`
+     As part of this step hidden layer numbers were increased from two to four and *tanh* was selected as activation function. 
 
-        There is no significant difference in accuracy in this case.
+    ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/99c302bd-4bb8-4128-9edb-a8bac9ec3b2a)
 
-    - **Attempt 03: Changing Binning**\
-      In this section, an attempt was made to increase the number of bins. Specifically, additional bins were added for both "APPLICATION_TYPE" and "CLASSIFICATION". Furthermore, the model was augmented by adding three hidden layers, each of which contained 30, 80, and 100 neurons, respectively. Additionally, the activations for these layers were "relu", "tanh", and "sigmoid".\
-![image](https://github.com/lakigit/deep-learning-challenge/assets/138610916/8071ecef-310e-4c04-9729-59d2e42ef32b)
+      Model Summary:
 
-        `268/268 - 1s - loss: 0.5632 - accuracy: 0.7261 - 714ms/epoch - 3ms/step`\
-        `Loss: 0.5631876587867737, Accuracy: 0.726064145565033`
+      ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/d20ae561-2abe-4754-843f-750cac67ed36)
 
-        While there is only a marginal improvement in the accuracy of the final model, it is still superior compared to the other models.  
+      However, accuracy has remained same, indicating that addition of deep layers does not effect the accuracy.
+   
+      ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/6cf18dc9-cac3-48a9-9c91-f76de8becb2b)
+
+ - **Attempt 02: Dropping Features from Analysis**\
+     [Model Version 03](https://github.com/pkrachakonda/Deep_Learning_Challenge/blob/main/AlphabetSoupCharity_Version_03.ipynb)
+
+     In this step, some of the features "STATUS", "SPECIAL_CONSIDERATIONS_Y" were dropped from the Model V02, to examine the effect of these features on accuarcy.
+
+     ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/2b0bf4f1-3751-4ec9-a7d5-a151c43f709e)
+
+
+     ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/b6db5c9c-30b5-41c1-a254-2e4e67f17dce)
+
+     Model Summary:
+
+     ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/36d3d768-6cdc-4f9f-8876-2cc67f17151f)
+
+     There is no significant difference in accuracy w.r.t. to base case.
+   
+     ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/238ee816-f552-4049-b726-416ad30f74b0)
+
+- **Attempt 03: Changing Binning**\
+  [Model Version V04](https://github.com/pkrachakonda/Deep_Learning_Challenge/blob/main/AlphabetSoupCharity_Version_04.ipynb)
+  
+    In this section, an attempt was made to increase the number of bins. Specifically, additional bins were added for both "APPLICATION_TYPE" and "CLASSIFICATION" to Model version V02.\
+
+    Model Summary:\
+    ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/b3450349-d8f2-4056-b060-038dd7385bde)
+ 
+   ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/9729dbbf-21dc-4c0d-b347-d80062d4242c)
+
+  While there is only a marginal improvement in the accuracy of the final model, it is still superior compared to the other models.
+
+  
