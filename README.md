@@ -79,7 +79,7 @@ A Sequential tensorflow binary classified neural model is used for this challeng
 - **Attempt 03: Changing Binning**\
   [Model Version V04](https://github.com/pkrachakonda/Deep_Learning_Challenge/blob/main/AlphabetSoupCharity_Version_04.ipynb)
   
-    In this section, an attempt was made to increase the number of bins. Specifically, additional bins were added for both "APPLICATION_TYPE" and "CLASSIFICATION" to Model version V02.\
+    In this section, an attempt was made to increase the number of bins. Specifically, additional bins were added for both "APPLICATION_TYPE" and "CLASSIFICATION" to Model version V03.
 
     Model Summary:\
     ![image](https://github.com/pkrachakonda/Deep_Learning_Challenge/assets/20739237/b3450349-d8f2-4056-b060-038dd7385bde)
